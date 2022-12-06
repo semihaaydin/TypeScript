@@ -59,7 +59,66 @@ let isUpdated:boolean = true;
             Book="Book",Newspaper="Newspaper",Magazine="Magzine"
         };
         console.log(Readable.Book); // Çıktı book olur 
+
+//8.Union
+        //Bir type string veya number olsun demek istersek union type kullanırız. 
+        let code : string | number | boolean = true;
+        console.log(code);
+        code="Test";
+        console.log(code);
+        code=8;   
+        console.log(code);
         
+//9.Any
+        //Çok tavsiye edilmeyen bir veri tipi. Any denilen bir type için number,string,boolean,obje,array olabilir.
+        //Tip korumasına izin vermeyiz.
+        console.log("-----------ANY------");
+        let something:any="Ben herşey olurum";
+        something=5;
+        console.log(something);
+        something=true;
+        console.log(something);
+        let myPerson:{firstname:string,lastName:string,age:number};
+        myPerson={firstname:"My",lastName:"Person",age:55};
+        something= myPerson;
+        console.log(something);
+
+//9.void 
+        //geri dönüş tipi olmayan yapıdır.
+        console.log("-----------VOID------");
+        function sayHello() : void { 
+            console.log("Say Hello Mehod call");
+        }
+
+        sayHello();
+        
+//10.never geriye hiçbir değer dönmeyeceğini söyleriz. Genelde hata fırlatan yapılarda kullanırız. 
+       /* console.log("-----------NEVER------");
+            function hataFirlat(errorMsg:string) : never { 
+                throw new Error(errorMsg);
+            }
+        hataFirlat("Hatayim");*/
+        //void geriye undefined gönderir.
+        
+//10.type Inference 
+            console.log("-----------TYPE INFERENCE------");
+            let sayac=0;
+            let sayac2:number=0;
+            console.log(typeof(sayac)); // çıktı number yazar
+            console.log(typeof(sayac2)); // çıktı number yazar
+
+            //Ne işe yarar?
+            function sum (a:number,b:number){
+                return a+b;
+            }
+            //let total:string=sum(5,7);  -> hata verir.
+
+//10.type Casting typecasting işlemidir.
+            console.log("-----------TYPE Casting------");
+            let myCodeX:unknown="1";
+            console.log(typeof(myCodeX));//string 
+            let myCodeY=<number>myCodeX;
+            console.log(typeof(myCodeY));//string 
 
 
      
